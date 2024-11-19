@@ -111,10 +111,25 @@ public class Main {
 
     public static void imprimirQRCode() {
         // Função para imprimir QRCode na impressora
+
+        if (conexaoAberta) {
+            ImpressoraDLL.INSTANCE.ImpressaoQRCode("Teste de impressao", 6, 4);
+            ImpressoraDLL.INSTANCE.Corte(5);
+        } else {
+            System.out.println("Erro: Conexão não está aberta.");
+        }
+
     }
 
     public static void imprimirCodigoBarras() {
         // Função para imprimir código de barras na impressora
+
+        if (conexaoAberta) {
+            ImpressoraDLL.INSTANCE.ImpressaoCodigoBarras(8, "{A012345678912", 100, 2, 3);
+            ImpressoraDLL.INSTANCE.Corte(5);
+        } else {
+            System.out.println("Erro: Conexão não está aberta.");
+        }
     }
 
     public static void imprimirXMLSAT() {
